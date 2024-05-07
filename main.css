@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width:480px){
+    body{
+        background-color: rgb(248, 126, 126);
+    }
+
+    .hidden{
+        display:none;
+    }
+
+    .close{
+        width: 30px;
+        height: 30px;
+    }
+
+    .botaoFechar{
+        display: flex;
+        justify-content: end;
+    }
+
+    .alerta{
+        width: 300px;
+        margin: 0 auto;
+        background-color: rgb(255, 255, 255) ;
+        margin-top: 150px;
+        padding: 30px;
+    }
+
+    .aside{
+        width: 250px;
+        height: 100vh;
+        background-color: aqua;
+    }
+
+    .aside__titulo{
+        margin-left: 20px;
+        font-size: 25px;
+    }
+
+    .aside__menu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .aside__menu img{
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .aside__pontos{
+        text-align: center;
+        background-color: wheat;
+        height: 150px;
+        width: 180px;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .pontos{
+        display: block;
+        padding-top: 30px;
+    }
+
+    .transfere{
+        margin-top: 30px;
+        padding: 5px 15px;
+    }
+
+    .aside__carteira{
+        text-align: center;
+        background-color: wheat;
+        height: 150px;
+        width: 180px;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    .saldo{
+        display: block;
+        padding-top: 30px;
+    }
+
+    .aposta{
+        margin-top: 30px;
+        padding: 5px 15px;
+    }
+    
+    .botao__menu{
+        width: 50px;
+        height: 50px;
+    }
+
+    .sobre{
+        text-align: center;
+    }
+
+    .explicacao{
+        width: 200px;
+        margin: 0 auto;
+        font-size: 20px;
+    }
+
+    .apostaFeita{
+        display: block;
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    .jogo{
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .container__jogo{
+        width: 240px;
+        margin: 0 auto;
+    }
+
+    .container__jogo ul{
+        display: inline-flex;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+
+    .block{
+        width: 50px;
+        height: 50px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 20px;
+    }
+
+    .block img{
+        height: 50px;
+        width: 50px;
+    }
+
+    .footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: black;
+        }
+}
