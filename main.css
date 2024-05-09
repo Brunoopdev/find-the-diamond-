@@ -113,6 +113,12 @@
         color: #fff;
     }
 
+    .saldoRestante{
+        display: block;
+        margin-top: 5px;
+        color: #fff;
+    }
+
     .jogo{
         text-align: center;
         padding-top: 60px;
@@ -141,12 +147,4 @@
         height: 50px;
         width: 50px;
     }
-
-    .footer{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        background-color: black;
-        }
 }
