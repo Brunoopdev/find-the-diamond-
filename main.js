@@ -6,7 +6,9 @@ const menuLateral = document.querySelector('.aside');
 const tentativa = document.querySelectorAll('.tentativa');
 
 const saldo = 0;
-let classe;
+let numeroSecreto;
+
+sorteiaDiamante();
 
 document.addEventListener('DOMContentLoaded', () =>{
     alerta.classList.remove('hidden');
@@ -31,61 +33,21 @@ botaoMenuAberto.addEventListener('click', () =>{
 })
 
 
-// sorteiaDiamante();
 
-tentativa.forEach(elemento =>{
+
+tentativa.forEach((elemento, index) =>{
     elemento.addEventListener('click', () =>{
-        if(classe == 'primeira'){
-            
+        if(index == numeroSecreto){
+            tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
         }else{
-            console.log('Teste');
+            alert('ERROU');
         }
     })
 })
 
 
 function sorteiaDiamante(){
-    let numeroSecreto = Math.floor(Math.random() * 12 + 1);
-    switch (numeroSecreto) {
-        case 1:
-            classe = 'primeira'
-            break;
-        case 2:
-            classe = 'segunda'
-            break;
-        case 3:
-            classe = 'terceira'
-            break;
-        case 4:
-            classe = 'quarta'
-            break;
-        case 5:
-            classe = 'quinta'
-            break;
-        case 6:
-            classe = 'sexta'
-            break;
-        case 7:
-            classe = 'setima'
-            break;
-        case 8:
-            classe = 'oitava'
-            break;
-        case 9:
-            classe = 'nona'
-            break;
-        case 10:
-            classe = 'decima'
-            break;
-        case 11:
-            classe = 'decimaPrimeira'
-            break;
-        case 12:
-            classe = 'decimaSegunda'
-            break;
-        default:
-            break;
-    }
+    numeroSecreto = Math.floor(Math.random() * 12 + 1);
 }
 
 
