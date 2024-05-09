@@ -34,6 +34,7 @@
     .aside{
         width: 250px;
         height: 100vh;
+        overflow-y: hidden;
         background-color: aqua;
     }
 
