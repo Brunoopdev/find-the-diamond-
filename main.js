@@ -129,6 +129,10 @@ function joga (){
                 tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
     
                 resposta.innerHTML = `Você errou :(`
+
+                saldoNaTela.innerHTML = `Saldo: ${saldo}`;
+                pontosNaTela.innerHTML = `Pontos ${pontos}`;
+                saldoRestante.innerHTML = `Saldo: ${saldo}`
             }
         }
         elemento.addEventListener('click', (evento));
