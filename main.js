@@ -56,7 +56,7 @@ botaoTransfere.addEventListener('click', () =>{
         pontos -= pontos;
 
         console.log(pontos);
-        console.log(saldo)
+        console.log(typeof saldo)
     }
 
     saldoNaTela.innerHTML = `Saldo: ${saldo}`;
@@ -102,7 +102,7 @@ function joga (){
     
             if(index == numeroSecreto){
                 tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
-                pontos = aposta.value;
+                pontos = parseInt(aposta.value);
                 console.log(saldo);
 
                 tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
