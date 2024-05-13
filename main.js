@@ -6,8 +6,24 @@ const menuLateral = document.querySelector('.aside');
 const tentativa = document.querySelectorAll('.tentativa');
 const jogo = document.querySelector('.jogo');
 const resposta = document.querySelector('.resposta');
+const apostaFeita = document.querySelector('.apostaFeita');
+const saldoRestante = document.querySelector('.saldoRestante');
+const botaoReinicia = document.querySelector('.reiniciar');
 
+//
+const pontosNaTela = document.querySelector('.pontos'); //pontosNaTela
+const botaoTransfere = document.querySelector('.transfere'); //botaoTransfere
+const saldoNaTela = document.querySelector('.saldo'); //saldoNaTela
+const botaoAposta = document.querySelector('.apostaBotao'); //botaoAposta
+const aposta = document.querySelector('.aposta'); //aposta
+
+//saldo
 let saldo = 100;
+
+//aposta
+let pontos = 100;
+
+//numero sorteado
 let numeroSecreto;
 
 sorteiaDiamante();
@@ -32,10 +48,50 @@ botaoMenuAberto.addEventListener('click', () =>{
     document.querySelector('.jogoCompleto').classList.remove('hidden');
 })
 
+botaoTransfere.addEventListener('click', () =>{
+    if(pontos <= 0){
+        alert('Você não tem essa quantidade de pontos!');
+    }else{
+        saldo += pontos;
+        pontos -= pontos;
 
+        console.log(pontos);
+        console.log(saldo)
+    }
 
+    saldoNaTela.innerHTML = `Saldo: ${saldo}`;
+    pontosNaTela.innerHTML = `Pontos ${pontos}`;
+})
+
+botaoAposta.addEventListener('click', () =>{
+    if(saldo < parseInt(aposta.value)){
+        alert('Você não tem esse saldo para apostar!');
+    }else{
+        saldo -= parseInt(aposta.value);
+    }
+
+    saldoNaTela.innerHTML = `Saldo: ${saldo}`;
+    apostaFeita.innerHTML = `Aposta: ${parseInt(aposta.value)}`
+    saldoRestante.innerHTML = `Saldo: ${saldo}`
+})
+
+botaoReinicia.addEventListener('click', () =>{
+    erro = false;
+
+    tentativa.forEach(elemento =>{
+        elemento.setAttribute('src', './img/question.png');
+    })
+
+    resposta.innerHTML = '';
+
+    sorteiaDiamante();
+    joga();
+})
+
+//variavel para parar o looping
 let erro = false;
 
+//lógica do jogo
 function joga (){
     tentativa.forEach((elemento, index) =>{
 
@@ -46,16 +102,22 @@ function joga (){
     
             if(index == numeroSecreto){
                 tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
-                saldo += 100;
+                pontos = aposta.value;
                 console.log(saldo);
-                
-                tentativa.forEach((elemento) =>{
-                    elemento.removeEventListener('click', (evento));
-                })
-    
+
                 tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
     
                 resposta.innerHTML = `Você acertou :)`
+
+                tentativa.forEach((elemento) =>{
+                    elemento.removeEventListener('click', (evento));
+                })
+
+                saldoNaTela.innerHTML = `Saldo: ${saldo}`;
+                pontosNaTela.innerHTML = `Pontos ${pontos}`;
+                saldoRestante.innerHTML = `Saldo: ${saldo}`
+
+                erro = true;
             }else{
                 console.log('Errou');
                 erro = true;
@@ -69,17 +131,22 @@ function joga (){
                 resposta.innerHTML = `Você errou :(`
             }
         }
-    
         elemento.addEventListener('click', (evento));
+
+        
     })
 }
 
-
+//sorteia um número aleatório
 function sorteiaDiamante(){
     numeroSecreto = Math.floor(Math.random() * 12);
+    console.log(numeroSecreto);
 }
 
-joga();
 
+
+
+joga();
+sorteiaDiamante();
 
 
