@@ -21,6 +21,7 @@
     .botaoFechar{
         display: flex;
         justify-content: end;
+        margin-bottom: 5px;
     }
 
     .alerta{
@@ -29,6 +30,11 @@
         background-color: rgb(255, 255, 255) ;
         margin-top: 150px;
         padding: 30px;
+        height: 50vh;
+    }
+
+    .alerta p{
+        font-size: 14px;
     }
 
     .aside{
@@ -162,10 +168,20 @@
         margin: 0 auto;
         margin-top: 30px;
         padding: 5px 15px;
+        border-radius: 5px;
+        background-color: #fff;
     }
 
     .resposta{
         display: block;
         margin-top: 20px;
+    }
+
+    .jogoCompleto{
+        height: 100vh;
+    }
+    
+    .text{
+        color: black;
     }
 }

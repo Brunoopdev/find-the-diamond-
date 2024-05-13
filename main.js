@@ -77,9 +77,9 @@ botaoAposta.addEventListener('click', () =>{
                 
 
             saldoNaTela.innerHTML = `Saldo: ${saldo}`;
-            saldoRestante.innerHTML = `Saldo: ${saldo}`;
+            saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
 
-            apostaFeita.innerHTML = `Aposta: ${parseInt(aposta.value)}`
+            apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${parseInt(aposta.value)}`
 
             
             joga();
@@ -147,7 +147,7 @@ function joga (){
 
                 saldoNaTela.innerHTML = `Saldo: ${saldo}`;
                 pontosNaTela.innerHTML = `Pontos: ${pontos}`;
-                saldoRestante.innerHTML = `Saldo: ${saldo}`
+                saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
 
                 erro = true;
 
@@ -171,7 +171,7 @@ function joga (){
 
                 saldoNaTela.innerHTML = `Saldo: ${saldo}`;
                 pontosNaTela.innerHTML = `Pontos ${pontos}`;
-                saldoRestante.innerHTML = `Saldo: ${saldo}`;
+                saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
 
                 if(erro == true){
                     jogou = true;
