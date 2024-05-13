@@ -55,41 +55,70 @@ botaoTransfere.addEventListener('click', () =>{
         saldo += pontos;
         pontos -= pontos;
 
-        console.log(pontos);
+        console.log(typeof pontos);
         console.log(typeof saldo)
     }
 
     saldoNaTela.innerHTML = `Saldo: ${saldo}`;
-    pontosNaTela.innerHTML = `Pontos ${pontos}`;
+    pontosNaTela.innerHTML = `Pontos: ${pontos}`;
 })
 
 botaoAposta.addEventListener('click', () =>{
+
     if(saldo < parseInt(aposta.value)){
         alert('Você não tem esse saldo para apostar!');
     }else{
-        saldo -= parseInt(aposta.value);
+
+        if(aposta.value == '' || aposta.value == NaN || aposta.value == 0){
+            alert('Insira um valor válido!');
+            aposta.value = '';
+        }else{
+                saldo -= parseInt(aposta.value);
+                
+
+            saldoNaTela.innerHTML = `Saldo: ${saldo}`;
+            saldoRestante.innerHTML = `Saldo: ${saldo}`;
+
+            apostaFeita.innerHTML = `Aposta: ${parseInt(aposta.value)}`
+
+            
+            joga();
+        }
+        
+        
     }
-
-    saldoNaTela.innerHTML = `Saldo: ${saldo}`;
-    apostaFeita.innerHTML = `Aposta: ${parseInt(aposta.value)}`
-    saldoRestante.innerHTML = `Saldo: ${saldo}`
 })
 
-botaoReinicia.addEventListener('click', () =>{
-    erro = false;
+function reiniciaJogo(){
+    
+        botaoReinicia.addEventListener('click', () =>{
+        if(jogou){
+            
+            if(aposta.value <= 0){
+                alert('Aposte algum valor!');
+            }else{
+                erro = false;
+                jogou = false;
 
-    tentativa.forEach(elemento =>{
-        elemento.setAttribute('src', './img/question.png');
-    })
+                tentativa.forEach(elemento =>{
+                    elemento.setAttribute('src', './img/question.png');
+                })
 
-    resposta.innerHTML = '';
-
-    sorteiaDiamante();
-    joga();
+                resposta.innerHTML = '';
+                sorteiaDiamante();
+                joga();
+            }
+        }else{
+            alert('Jogue primeiro!');
+        }
 })
+}
 
 //variavel para parar o looping
 let erro = false;
+
+//variavel para ver se já jogou
+let jogou = false;
 
 //lógica do jogo
 function joga (){
@@ -102,8 +131,11 @@ function joga (){
     
             if(index == numeroSecreto){
                 tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
-                pontos = parseInt(aposta.value);
-                console.log(saldo);
+                
+                pontos += (parseInt(aposta.value) + 100);
+                
+                aposta.value = '';
+                
 
                 tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
     
@@ -114,14 +146,21 @@ function joga (){
                 })
 
                 saldoNaTela.innerHTML = `Saldo: ${saldo}`;
-                pontosNaTela.innerHTML = `Pontos ${pontos}`;
+                pontosNaTela.innerHTML = `Pontos: ${pontos}`;
                 saldoRestante.innerHTML = `Saldo: ${saldo}`
 
                 erro = true;
+
+                if(erro == true){
+                    jogou = true;
+                }
+
             }else{
                 console.log('Errou');
                 erro = true;
     
+                aposta.value = '';
+
                 tentativa.forEach((elemento) =>{
                     elemento.removeEventListener('click', (evento));
                 })
@@ -132,7 +171,11 @@ function joga (){
 
                 saldoNaTela.innerHTML = `Saldo: ${saldo}`;
                 pontosNaTela.innerHTML = `Pontos ${pontos}`;
-                saldoRestante.innerHTML = `Saldo: ${saldo}`
+                saldoRestante.innerHTML = `Saldo: ${saldo}`;
+
+                if(erro == true){
+                    jogou = true;
+                }
             }
         }
         elemento.addEventListener('click', (evento));
@@ -148,9 +191,6 @@ function sorteiaDiamante(){
 }
 
 
-
-
-joga();
+reiniciaJogo(); 
 sorteiaDiamante();
-
 

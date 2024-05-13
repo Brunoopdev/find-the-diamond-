@@ -84,7 +84,7 @@
 
     .saldo{
         display: block;
-        padding-top: 30px;
+        padding-top: 20px;
     }
 
     .aposta{
@@ -113,6 +113,11 @@
         color: #fff;
     }
 
+    .apostaBotao{
+        padding: 5px 15px;
+        margin-top: 10px;
+    }
+
     .saldoRestante{
         display: block;
         margin-top: 5px;
@@ -121,7 +126,7 @@
 
     .jogo{
         text-align: center;
-        padding-top: 60px;
+        padding-top: 20px;
     }
 
     .container__jogo{
@@ -150,5 +155,17 @@
 
     .aposta{
         max-width: 100%;
+    }
+
+    .reiniciar{
+        display: block;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 5px 15px;
+    }
+
+    .resposta{
+        display: block;
+        margin-top: 20px;
     }
 }
