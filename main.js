@@ -20,8 +20,11 @@ const aposta = document.querySelector('.aposta'); //aposta
 //saldo
 let saldo = 100;
 
-//aposta
+//pontos disponiveis para aposta
 let pontos = 100;
+
+//pontos apostados
+let valorApostado = 0;
 
 //numero sorteado
 let numeroSecreto;
@@ -68,24 +71,20 @@ botaoAposta.addEventListener('click', () =>{
     if(saldo < parseInt(aposta.value)){
         alert('Você não tem esse saldo para apostar!');
     }else{
-
         if(aposta.value == '' || aposta.value == NaN || aposta.value == 0){
             alert('Insira um valor válido!');
             aposta.value = '';
         }else{
-                saldo -= parseInt(aposta.value);
-                
-
+            valorApostado += parseInt(aposta.value);
+            saldo -= parseInt(aposta.value);
             saldoNaTela.innerHTML = `Saldo: ${saldo}`;
             saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
+            apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${parseInt(valorApostado)}`
 
-            apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${parseInt(aposta.value)}`
-
-            
             joga();
+
+            aposta.value = '';
         }
-        
-        
     }
 })
 
@@ -172,6 +171,7 @@ function joga (){
                 saldoNaTela.innerHTML = `Saldo: ${saldo}`;
                 pontosNaTela.innerHTML = `Pontos ${pontos}`;
                 saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
+                apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${0}`
 
                 if(erro == true){
                     jogou = true;
@@ -179,8 +179,6 @@ function joga (){
             }
         }
         elemento.addEventListener('click', (evento));
-
-        
     })
 }
 

@@ -46,7 +46,6 @@ html{
         width: 250px;
         background-color: rgb(255, 192, 56);
         position: absolute;
-        transition: ease 2s;
         border-right: 3px solid black;
     }
 
