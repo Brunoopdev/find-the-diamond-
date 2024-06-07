@@ -40,7 +40,7 @@ closer.addEventListener('click', () =>{
 
 botaoMenuFechado.addEventListener('click', () =>{
     menuLateral.classList.remove('hidden');
-    document.querySelector('.jogoCompleto').classList.add('hidden');
+    // document.querySelector('.jogoCompleto').classList.add('hidden');
 })
 
 botaoMenuAberto.addEventListener('click', () =>{
@@ -130,16 +130,16 @@ function joga (){
             }
     
             if(index == numeroSecreto){
-                tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
+                tentativa[numeroSecreto].setAttribute('src', './img/python.png');
                 
                 pontos += (parseInt(aposta.value) + 100);
                 
                 aposta.value = '';
                 
 
-                tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
+                tentativa[numeroSecreto].setAttribute('src', './img/python.png');
     
-                resposta.innerHTML = `Você acertou :)`
+                resposta.innerHTML = `Você acertou! Vai programar em python!`
 
                 tentativa.forEach((elemento) =>{
                     elemento.removeEventListener('click', (evento));
@@ -165,9 +165,9 @@ function joga (){
                     elemento.removeEventListener('click', (evento));
                 })
     
-                tentativa[numeroSecreto].setAttribute('src', './img/diamante_azul.png');
+                tentativa[numeroSecreto].setAttribute('src', './img/python.png');
     
-                resposta.innerHTML = `Você errou :(`
+                resposta.innerHTML = `Você errou! Vai programar em Assembly!`
 
                 saldoNaTela.innerHTML = `Saldo: ${saldo}`;
                 pontosNaTela.innerHTML = `Pontos ${pontos}`;
