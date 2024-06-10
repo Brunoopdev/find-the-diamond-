@@ -13,6 +13,11 @@ html{
         background-color: rgb(51, 97, 172);
     }
 
+    .play{
+        width: 30px;
+        height: 25px;
+    }
+
     .hidden{
         display:none;
     }
@@ -87,9 +92,9 @@ html{
     }
 
     .aside__footer{
-        position: absolute;
-        bottom: 0;
-        left:28%
+        margin-top: 6em;
+        font-size: 10px;
+        color: rgba(0, 0, 0, .8);
     }
 
     .pontos{

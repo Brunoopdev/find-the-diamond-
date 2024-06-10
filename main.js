@@ -29,6 +29,15 @@ let valorApostado = 0;
 //numero sorteado
 let numeroSecreto;
 
+//quantidadeDeJogadas
+let tentativas = 0;
+
+//variavel para parar o looping
+let erro = false;
+
+//variavel para ver se já jogou
+let jogou = false;
+
 sorteiaDiamante();
 
 document.addEventListener('DOMContentLoaded', () =>{
@@ -57,9 +66,6 @@ botaoTransfere.addEventListener('click', () =>{
     }else{
         saldo += pontos;
         pontos -= pontos;
-
-        console.log(typeof pontos);
-        console.log(typeof saldo)
     }
 
     saldoNaTela.innerHTML = `Saldo: ${saldo}`;
@@ -67,57 +73,72 @@ botaoTransfere.addEventListener('click', () =>{
 })
 
 botaoAposta.addEventListener('click', () =>{
-
     if(saldo < parseInt(aposta.value)){
         alert('Você não tem esse saldo para apostar!');
+        aposta.value = '';
     }else{
         if(aposta.value == '' || aposta.value == NaN || aposta.value == 0){
             alert('Insira um valor válido!');
             aposta.value = '';
         }else{
             valorApostado += parseInt(aposta.value);
-            saldo -= parseInt(aposta.value);
+            saldo -= valorApostado;
             saldoNaTela.innerHTML = `Saldo: ${saldo}`;
             saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
-            apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${parseInt(valorApostado)}`
+            apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${valorApostado}`
 
-            joga();
-
-            aposta.value = '';
+            console.log(valorApostado);
         }
     }
 })
 
+
+//botao que reinicia e inicia o jogo
 function reiniciaJogo(){
     
         botaoReinicia.addEventListener('click', () =>{
-        if(jogou){
-            
-            if(aposta.value <= 0){
+        if(jogou && tentativas >= 1){
+            if(valorApostado <= 0){
                 alert('Aposte algum valor!');
             }else{
+                tentativa.forEach(elemento =>{
+                    elemento.setAttribute('src', './img/question.png');
+                })
+
+                resposta.innerHTML = '';
+
                 erro = false;
                 jogou = false;
+
+                sorteiaDiamante();
+                joga();
+            }
+        }else{
+            if(valorApostado <= 0){
+                alert('Aposte algum valor!');
+            }else{
 
                 tentativa.forEach(elemento =>{
                     elemento.setAttribute('src', './img/question.png');
                 })
 
                 resposta.innerHTML = '';
+
+                erro = false;
+                jogou = false;
+
                 sorteiaDiamante();
                 joga();
+
+
+                document.querySelector('.play').setAttribute('src', './img/reload.png');
+                tentativas ++;
             }
-        }else{
-            alert('Jogue primeiro!');
         }
 })
 }
 
-//variavel para parar o looping
-let erro = false;
 
-//variavel para ver se já jogou
-let jogou = false;
 
 //lógica do jogo
 function joga (){
@@ -131,7 +152,7 @@ function joga (){
             if(index == numeroSecreto){
                 tentativa[numeroSecreto].setAttribute('src', './img/python.png');
                 
-                pontos += (parseInt(aposta.value) + 100);
+                pontos += (parseInt(valorApostado) + 100);
                 
                 aposta.value = '';
                 
@@ -153,6 +174,8 @@ function joga (){
                 if(erro == true){
                     jogou = true;
                 }
+
+                valorApostado = 0;
 
             }else{
                 console.log('Errou');
@@ -176,10 +199,14 @@ function joga (){
                 if(erro == true){
                     jogou = true;
                 }
+
+                valorApostado = 0;
             }
         }
         elemento.addEventListener('click', (evento));
     })
+
+    
 }
 
 //sorteia um número aleatório
