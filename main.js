@@ -112,6 +112,8 @@ function reiniciaJogo(){
 
                 sorteiaDiamante();
                 joga();
+
+                resposta.innerHTML = `Boa Sorte!`
             }
         }else{
             if(valorApostado <= 0){
@@ -131,6 +133,8 @@ function reiniciaJogo(){
 
                 document.querySelector('.play').setAttribute('src', './img/reload.png');
                 tentativas ++;
+
+                resposta.innerHTML = `Boa Sorte!`
             }
         }
 })

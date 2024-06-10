@@ -113,17 +113,21 @@ html{
     .pontos{
         display: block;
         padding-top: 30px;
+        font-weight:600;
     }
 
     .transfere{
         margin-top: 30px;
         padding: 5px 15px;
         background-color: white;
+        border-radius: 10px;
+        border: 1px solid black
     }
 
     .saldo{
         display: block;
         padding-top: 30px;
+        font-weight:600;
     }
 
     .aposta{
@@ -149,7 +153,7 @@ html{
         width: 300px;
         margin: 0 auto;
         border-radius: 10px;
-        padding: 3px;
+        padding: 5px;
     }
 
     .explicacao{
@@ -168,6 +172,8 @@ html{
         padding: 5px 15px;
         margin-top: 10px;
         background-color: white;
+        border-radius: 10px;
+        border: 1px solid black;
     }
 
     .saldoRestante{
