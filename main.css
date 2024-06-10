@@ -5,7 +5,7 @@
 }
 
 html{
-    height: 50vh;
+    height: 100vh;
 }
 
 @media (max-width:480px){
@@ -29,7 +29,7 @@ html{
     }
 
     .menu__header{
-        padding-bottom: 20px;
+        padding-bottom: 15px;
     }
 
     .botaoFechar{
@@ -157,7 +157,7 @@ html{
         margin: 0 auto;
         border-radius: 10px;
         padding: 5px;
-        margin-top: 10px;
+        margin-top: 0px;
         margin-bottom: 20px;
     }
 
@@ -189,8 +189,10 @@ html{
 
     .jogo{
         text-align: center;
-        padding-top: 5px;
-        margin-bottom: 20px;
+    }
+
+    .jogoCompleto{
+        height: 90vh;
     }
 
     .container__jogo{
