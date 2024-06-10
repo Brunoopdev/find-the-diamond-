@@ -84,7 +84,7 @@ botaoAposta.addEventListener('click', () =>{
             aposta.value = '';
         }else{
             valorApostado += parseInt(aposta.value);
-            saldo -= valorApostado;
+            saldo -= parseInt(aposta.value);
             saldoNaTela.innerHTML = `Saldo: ${saldo}`;
             saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
             apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${valorApostado}`;

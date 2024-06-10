@@ -5,7 +5,7 @@
 }
 
 html{
-    height: 100vh;
+    height: 50vh;
 }
 
 @media (max-width:480px){
@@ -224,6 +224,7 @@ html{
         background-color: rgb(255, 192, 56);
         height: 40px;
         font-weight: bold;
+        border: 1px solid black
     }
 
     .resposta{
@@ -234,4 +235,5 @@ html{
     .text{
         color: black;
     }
+
 }
