@@ -71,6 +71,7 @@ botaoTransfere.addEventListener('click', () =>{
 
     saldoNaTela.innerHTML = `Saldo: ${saldo}`;
     pontosNaTela.innerHTML = `Pontos: ${pontos}`;
+    saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
 })
 
 botaoAposta.addEventListener('click', () =>{
@@ -86,7 +87,7 @@ botaoAposta.addEventListener('click', () =>{
             saldo -= valorApostado;
             saldoNaTela.innerHTML = `Saldo: ${saldo}`;
             saldoRestante.innerHTML = `<span class="text">Saldo:</span> ${saldo}`;
-            apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${valorApostado}`
+            apostaFeita.innerHTML = `<span class="text">Aposta:</span> ${valorApostado}`;
 
             console.log(valorApostado);
         }
@@ -106,8 +107,6 @@ function reiniciaJogo(){
                     elemento.setAttribute('src', './img/question.png');
                 })
 
-                resposta.innerHTML = '';
-
                 erro = false;
                 jogou = false;
 
@@ -122,8 +121,6 @@ function reiniciaJogo(){
                 tentativa.forEach(elemento =>{
                     elemento.setAttribute('src', './img/question.png');
                 })
-
-                resposta.innerHTML = '';
 
                 erro = false;
                 jogou = false;
