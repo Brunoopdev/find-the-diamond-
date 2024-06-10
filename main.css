@@ -30,16 +30,22 @@ html{
     .botaoFechar{
         display: flex;
         justify-content: end;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+    }
+
+    .alerta__container{
+        height: 100vh;
     }
 
     .alerta{
-        width: 300px;
+        background-color: #fff;
+        width: 90%;
         margin: 0 auto;
-        background-color: rgb(255, 255, 255) ;
-        margin-top: 150px;
-        padding: 30px;
-        height: 50vh;
+        padding: 20px;
+        padding-top: 10px;
+        position: absolute;
+        top: 30%;
+        left:5%;
     }
 
     .alerta p{

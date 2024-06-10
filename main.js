@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
 closer.addEventListener('click', () =>{
     alerta.classList.add('hidden');
+    document.querySelector('.alerta__container').classList.add('hidden');
     document.querySelector('.jogoCompleto').classList.remove('hidden');
 })
 
